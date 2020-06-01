@@ -1,0 +1,24 @@
+service: filemonitor
+provider:
+  name: aws
+  runtime: nodejs12.x
+plugins:
+  - serverless-localstack
+  - serverless-mocha-plugin
+  - serverless-offline
+
+custom:
+  localstack:
+    stages:
+      - local
+    autostart: false
+  serverless-offline:
+    useChildProcesses: true
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          method: get
+          path: hello
