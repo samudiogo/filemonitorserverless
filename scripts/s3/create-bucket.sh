@@ -1,7 +1,7 @@
 BUCKET_NAME=$1
 
-aws \
---endpoint-url=http://localhost:4572 s3 mb s3://$BUCKET_NAME
+aws s3 mb s3://$BUCKET_NAME \
+ --endpoint-url=http://localhost:4572
 
-aws \
---endpoint-url=http://localhost:4572 s3 ls
+aws s3 ls \
+--endpoint-url=http://localhost:4572 
